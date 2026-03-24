@@ -25,10 +25,16 @@ def loading_screen():
 
 
 def character_name():
-    name = input("\nWelcome to Aterra Online! Please enter a name for your adventurer: ").strip().title()
-    return name
-    
+    while True:
+        name = input("\nWelcome to Aterra Online! Please enter a first and last name for your adventurer: ").strip().title()
+        if re.search(r"^[a-zA-Z]+\s+[a-zA-Z]", name):
+            print("Nice to meet you", name)
+            return name
+            break
+        else:
+            print("\nFirst and last names must only contain letters a-z and should have a space between them.")
 
+    
 
 
 main()

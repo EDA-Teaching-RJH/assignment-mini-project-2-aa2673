@@ -33,7 +33,7 @@ class Adventurer:
         self.classAbility = "Hero's Luck" 
     
     def __str__(self):
-        return(f"---Adventurer")
+        return(f"---Adventurer Profile---\nName: {self.name}\nOffense: {self.off}\nVitality: {self.vit}\nAgility: {self.agl}\nClass Ability: {self.classAbility}\n")
 
 
 def character_creation():
@@ -53,7 +53,6 @@ def character_creation():
                 agility = int(input("Agility: "))
                 try:
                     assert offense + vitality + agility == 20
-                    print(f"\n---Adventurer Profile---\nName:{name}\nOffense:{offense}\nVitality:{vitality}\nAgility:{agility}")
                     if offense == 15 and vitality == 5:
                         adventurer = Barbarian(name,offense,vitality,agility)
                     elif vitality == 15 and offense == 5:
@@ -62,33 +61,13 @@ def character_creation():
                         adventurer = Rogue(name,offense,vitality,agility)
                     else:
                         adventurer = Adventurer(name,offense,vitality,agility)
-                    print(f"You are {adventurer}")
+                    print(f"{adventurer}")
                     return adventurer
                 except AssertionError:
                     print("You must allocate exactly 20 points.")
             except ValueError:
                  print("Please input numbers only")
            
-       
-
-                                                           
-        
-
-
-    
-
-        
-
-
-#
-# class Classes:
-    
-    
-
-
-
-
-    
 
 
 main()

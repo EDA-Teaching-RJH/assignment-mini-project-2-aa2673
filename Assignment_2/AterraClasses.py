@@ -4,6 +4,10 @@ class Archetypes:
         self.off = off
         self.vit = vit
         self.agl = agl
+    
+    def __str__(self):
+        return(f"---Adventurer Profile---\nName: {self.name}\nOffense: {self.off}\nVitality: {self.vit}\nAgility: {self.agl}\nClass Ability: {self.classAbility}\n")
+        
 
 class Barbarian(Archetypes):
     def __init__(self,name,off,vit,agl):
@@ -20,8 +24,4 @@ class Tank(Archetypes):
     def __init__(self,name,off,vit,agl):
         super().__init__(name, off=5, vit=15, agl=agl)
         self.classAbility = "Iron Physique"
-        
 
-
-
-    

@@ -36,18 +36,30 @@ def character_creation():
         name = input("\nWelcome to Aterra Online! Please enter a first and last name for your adventurer: ").strip().title()
         if re.search(r"^[a-zA-Z]+\s+[a-zA-Z]", name):
             print(f"Nice to meet you {name}!")
-            print("How would you like to allocate your stat points? You have 20 to spend.")
-            offense = int(input("Offense: "))
-            vitality = int(input("Vitality: "))
-            agility = int(input("Agility: "))
-            adventurer = Adventurer(name, offense, vitality, agility)
-            print(f"\n---Adventurer Profile---\nName:{name}\nOffense:{offense}\nVitality:{vitality}\nAgility:{agility}")
-            return adventurer
             break
         else:
             print("\nFirst and last names must only contain letters a-z and should have a space between them.")
-        
+    
+    while True:
+            print("How would you like to allocate your stat points? You have 20 to spend.")
+            try:
+                offense = int(input("Offense: "))
+                vitality = int(input("Vitality: "))
+                agility = int(input("Agility: "))
+                try:
+                    assert offense + vitality + agility == 20
+                    adventurer = Adventurer(name, offense, vitality, agility)
+                    print(f"\n---Adventurer Profile---\nName:{name}\nOffense:{offense}\nVitality:{vitality}\nAgility:{agility}")
+                    return adventurer
+                    break
+                except AssertionError:
+                    print("You must allocate exactly 20 points.")
+            except ValueError:
+                 print("Please input numbers only")
+           
+       
 
+                                                           
         
 
 

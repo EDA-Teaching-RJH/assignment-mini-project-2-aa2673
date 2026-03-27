@@ -33,7 +33,7 @@ class Adventurer:
         self.classAbility = "Hero's Luck" 
     
     def __str__(self):
-        return(f"---Adventurer Profile---\nName: {self.name}\nOffense: {self.off}\nVitality: {self.vit}\nAgility: {self.agl}\nClass Ability: {self.classAbility}\n")
+        return(f"---Adventurer Profile---\nName: {self.name}\nClass: {type(self).__name__}\nOffense: {self.off}\nVitality: {self.vit}\nAgility: {self.agl}\nClass Ability: {self.classAbility}\n")
 
 
 def character_creation():

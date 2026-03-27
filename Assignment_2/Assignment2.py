@@ -1,10 +1,12 @@
 import re
 import time
 from AterraClasses import Barbarian, Rogue, Tank  
+import csv
 
 def main():
     loading_screen()
-    character_creation()
+    adventurer = character_creation()
+    save(adventurer)
 
 def loading_screen():
     time.sleep(1)
@@ -68,6 +70,14 @@ def character_creation():
             except ValueError:
                  print("Please input numbers only")
            
+def save(adventurer):
+    with open("Assignment2.csv", "a", newline = "") as file:
+        writer = csv.DictWriter(file, fieldnames=["Name", "Class", "Offense", "Vitality", "Agility"])
+        writer.writerow({"Name": adventurer.name, "Class": type(adventurer).__name__, "Offense": adventurer.off, "Vitality": adventurer.vit, "Agility": adventurer.agl})
+    print("Character Saved.")
 
 
-main()
+
+
+if __name__ == "__main__":
+    main()
